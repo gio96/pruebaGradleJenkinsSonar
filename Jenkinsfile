@@ -34,7 +34,8 @@ pipeline {
         url:'https://github.com/gio96/pruebaGradleJenkinsSonar']]])
         //sh 'gradle --b ./build.gradle clean'
         sh 'chmod +x gradlew'
-        sh './gradlew clean'
+        //sh './gradlew clean'
+        sh './gradlew --b ./build.gradle clean'
       }
     }
 
@@ -54,7 +55,7 @@ pipeline {
     					//./proyecto1/build.gradle
     					//sh './gradlew build'
     					//sh 'gradle --b ./build.gradle clean compileJava'
-    					sh 'gradle --b ./build.gradle compileJava'
+    					sh './gradlew --b ./build.gradle compileJava'
     			}
     		}
 
