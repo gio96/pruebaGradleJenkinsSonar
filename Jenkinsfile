@@ -62,7 +62,8 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-        sh 'gradle --b ./build.gradle test'
+        //sh 'gradle --b ./build.gradle test'
+        sh './gradlew --b ./build.gradle test'
 
       }
     }
@@ -79,7 +80,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh '**/gradle --b ./build.gradle build -x test'
+        sh './gradlew --b ./build.gradle build -x test'
       }
     }
   }
@@ -91,7 +92,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
     success {
       echo 'This will run only if successful'
       // RUTA DE TUS ARCHIVOS .XML
-      junit 'build/test-results/test/*.xml'
+      junit '**/build/test-results/test/*.xml'
     }
     failure {
       echo 'This will run only if failed'
