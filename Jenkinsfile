@@ -39,7 +39,7 @@ pipeline {
     			steps{
     					echo "------------>Compile<------------"
     					//./proyecto1/build.gradle
-    					sh 'gradle --b ./pruebaGradleJenkinsSonar/build.gradle clean compileJava'
+    					sh 'gradle --b ./build.gradle clean compileJava'
     			}
     		}
 
