@@ -32,7 +32,7 @@ pipeline {
         userRemoteConfigs: [[
         credentialsId: 'GitHub_gio96',
         url:'https://github.com/gio96/pruebaGradleJenkinsSonar']]])
-        sh 'gradle clean'
+        //sh 'gradle clean'
       }
     }
 
@@ -41,6 +41,7 @@ pipeline {
     					echo "------------>Compile<------------"
     					//./proyecto1/build.gradle
     					//sh 'gradle --b ./build.gradle clean compileJava'
+    					sh 'gradle --b ./build.gradle clean'
     					sh './gradlew build'
     			}
     		}
