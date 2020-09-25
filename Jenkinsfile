@@ -32,17 +32,28 @@ pipeline {
         userRemoteConfigs: [[
         credentialsId: 'GitHub_gio96',
         url:'https://github.com/gio96/pruebaGradleJenkinsSonar']]])
+        sh 'gradle --b ./build.gradle clean'
         //sh 'gradle clean'
       }
     }
+
+    stage('Test GradleW') {
+        			steps{
+        					echo "------------>Compile<------------"
+        					//./proyecto1/build.gradle
+        					sh './gradlew build'
+        					//sh 'gradle --b ./build.gradle clean compileJava'
+        					//sh 'gradle --b ./build.gradle compileJava'
+        			}
+        		}
 
     stage('Compile') {
     			steps{
     					echo "------------>Compile<------------"
     					//./proyecto1/build.gradle
+    					//sh './gradlew build'
     					//sh 'gradle --b ./build.gradle clean compileJava'
-    					sh 'gradle --b ./build.gradle clean'
-    					sh './gradlew build'
+    					sh 'gradle --b ./build.gradle compileJava'
     			}
     		}
 
